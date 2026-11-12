@@ -1,6 +1,19 @@
 /* DEAD LETTER OFFICE — spectral telegraph design system.
    All effects are functional: they encode tape health, verification state,
-   and whether the app is working offline. No external fonts or assets. */
+   and whether the app is working offline. No external fonts or assets:
+   the Devanagari subset below is a locally bundled, self-hosted WOFF2. */
+
+/* Noto Sans Devanagari, subset to U+0900–097F etc., SIL OFL 1.1.
+   Ships locally so Hindi/Nagpuri messages render on any judge's machine.
+   License: assets/Noto-LICENSE.txt */
+@font-face {
+  font-family: "DeadLetter Deva";
+  src: url("assets/NotoSansDevanagari-Subset.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+0900-097F, U+1CD0-1CFF, U+200C-200D, U+0020-007E;
+}
 
 :root {
   --ink: #0d0b09;
@@ -20,12 +33,15 @@
 }
 
 * { box-sizing: border-box; }
+/* Author `display` rules otherwise beat the UA [hidden] rule — this keeps
+   programmatic hiding reliable for #result-empty, #result-body, panels, etc. */
+[hidden] { display: none !important; }
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
   background: radial-gradient(ellipse at 50% -10%, #241b12 0%, var(--ink) 55%, #080706 100%);
   color: var(--paper);
-  font-family: var(--serif);
+  font-family: var(--serif), "DeadLetter Deva", sans-serif;
   line-height: 1.55;
   min-height: 100vh;
   overflow-x: hidden;
@@ -107,7 +123,7 @@ label small { text-transform: none; letter-spacing: 0; font-weight: 400; color: 
 textarea {
   width: 100%; background: rgba(8, 7, 5, .72); color: var(--paper);
   border: 1px solid rgba(239, 228, 205, .18); border-radius: 2px; padding: .85rem;
-  font: .92rem/1.6 var(--mono); resize: vertical; outline: none;
+  font: .92rem/1.6 var(--mono), "DeadLetter Deva", monospace; resize: vertical; outline: none;
 }
 textarea:focus { border-color: var(--amber); box-shadow: 0 0 0 2px rgba(255, 180, 84, .14); }
 textarea::placeholder { color: #6c6458; }
@@ -194,7 +210,7 @@ input[type=range] { width: 100%; accent-color: var(--amber); }
 .ouija { font: 1rem/2 var(--serif); letter-spacing: .16em; color: rgba(255, 180, 84, .35); margin-bottom: 1rem; }
 #result-text {
   white-space: pre-wrap; word-break: break-word; background: rgba(8, 7, 5, .7); border: 1px solid rgba(131, 229, 189, .3);
-  padding: 1rem; font: .92rem/1.7 var(--mono); color: var(--spectral); max-height: 320px; overflow: auto; margin: 0;
+  padding: 1rem; font: .92rem/1.7 var(--mono), "DeadLetter Deva", monospace; color: var(--spectral); max-height: 320px; overflow: auto; margin: 0;
 }
 .result-stats { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .9rem; }
 .result-stats span { font: .66rem/1 var(--mono); letter-spacing: .06em; border: 1px solid var(--line); padding: .45rem .55rem; color: var(--mist); }

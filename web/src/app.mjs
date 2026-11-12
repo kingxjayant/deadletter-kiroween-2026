@@ -14,7 +14,7 @@ const state = { tape: null, torn: new Set(), cameraStream: null, scanning: false
 
 const SAMPLE = 'Station 04 → McCluskieganj. Bridge washed out, network down since 06:20. '
   + 'All families accounted for. Send oral rehydration salts and two volunteers by morning. '
-  + '— J.K. · नमस्ते · 🕯️';
+  + '— J.K. · नमस्ते · ✦';
 
 function status(message, kind = '') {
   const node = $('live-status');

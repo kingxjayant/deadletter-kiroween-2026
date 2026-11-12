@@ -33,8 +33,11 @@ must disclose any other pre-existing code or work incorporated into the Project.
 | fast-check | ^4.3.0 | MIT | Property-based tests, dev-only |
 | esbuild | latest | MIT | Static bundling, dev-only |
 | jsdom | latest | MIT | Headless DOM smoke tests, dev-only |
+| Noto Sans Devanagari (subset) | Debian fonts-noto-core 20201225-2 | SIL OFL 1.1 | Self-hosted WOFF2 for Hindi/Nagpuri text; no remote font loading |
 
-No third-party fonts, images, icons, audio, music, video, datasets,
+One font subset (Noto Sans Devanagari, SIL OFL 1.1) is bundled locally with its
+license text in `web/assets/Noto-LICENSE.txt`; no font is fetched over the
+network. No third-party images, icons, audio, music, video, datasets,
 trademarks or logos are included. The ghost sigil, paper-tape styling, all SVG
 artwork and all written copy are original. All demo-video music (if any) will be
 original or explicitly licensed; the default is silence + on-screen captions.

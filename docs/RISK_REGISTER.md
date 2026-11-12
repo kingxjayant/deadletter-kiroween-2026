@@ -44,6 +44,9 @@ Jayant's action.
 | C8 | Integrity could be mistaken for confidentiality | Explicit "not encrypted / not anonymous / no AI at runtime" in UI copy, README, provenance and submission copy. |
 | C9 | `/.kiro` formats change between Kiro 0.x / 1.x / CLI v3 | Hooks use the current `v1` JSON schema (`trigger`, `matcher`, `action`), steering front matter is the literal first line, specs use the 3-file structure; verified against kiro.dev docs on 12 Nov 2026. |
 | C10 | GitHub Pages build could break silently | `ci.yml` and `pages.yml` both run tests, build and the compliance gate before deploying; `public/` is also committed as a fallback. |
+| C11 | Devanagari/Hindi message text rendered as tofu boxes on a headless browser with no Indic system font — found during real Chromium screenshot verification | Bundled a 61 KB **self-hosted subset** of Noto Sans Devanagari (SIL OFL 1.1) with `unicode-range`, shipped in `web/assets/`. No remote font, no CDN. License in `web/assets/Noto-LICENSE.txt`, disclosed in `NOTICE` and `docs/PROVENANCE.md`. |
+| C12 | Visual claims unverified until a real browser ran | Headless Chromium verification on desktop 1440×1000 and mobile 390×844: zero console/page errors, one-click demo VERIFIED, 6 torn tiles. Six real screenshots in `docs/evidence/`. |
+| C13 | The empty-state ouija panel stayed visible after a successful resurrection (author CSS `display:grid` beats the UA `[hidden]` rule) — found in the first real browser screenshot | Added a global `[hidden] { display: none !important; }` and re-verified with `getComputedStyle(#result-empty).display === 'none'`. |
 
 ## D. Schedule risks
 

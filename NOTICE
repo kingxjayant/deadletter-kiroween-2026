@@ -19,13 +19,24 @@ Runtime (vendored offline, no CDN, no network at runtime)
    Full license text: web/vendor/jsQR-LICENSE.txt.
    Used for optional camera / QR-image strip scanning.
 
+3. Noto Sans Devanagari (Google) — SIL Open Font License 1.1
+   https://github.com/notofonts/noto-fonts
+   A subset (U+0900–097F, U+1CD0–1CFF, U+200C–200D, basic Latin) of
+   NotoSansDevanagari-Regular.ttf, converted to WOFF2 and bundled as
+   web/assets/NotoSansDevanagari-Subset.woff2. License/copyright text:
+   web/assets/Noto-LICENSE.txt. Used only so Hindi/Nagpuri messages render
+   on machines without a Devanagari system font. No network font loading.
+
 Development only (not shipped to the browser)
 --------------------------------------------
-3. fast-check — MIT — property-based testing.
-4. esbuild — MIT — static bundling.
-5. jsdom — MIT — headless DOM smoke tests.
-6. Node.js built-in modules (node:test, node:crypto).
+4. fast-check — MIT — property-based testing.
+5. esbuild — MIT — static bundling.
+6. jsdom — MIT — headless DOM smoke tests.
+7. Node.js built-in modules (node:test, node:crypto).
+8. Playwright / Chromium headless — used in the development sandbox only for
+   verification screenshots; NOT a project dependency, not shipped.
 
-No fonts, images, audio, video, datasets or trademarks from third parties are
-included. All SVG artwork, CSS, copy and documentation are original and created
-during the Kiroween 2026 Submission Period.
+No remote fonts, images, audio, video, datasets or trademarks from third
+parties are loaded. All SVG artwork, CSS, copy and documentation are original
+and created during the Kiroween 2026 Submission Period; the only bundled font
+is the OFL-licensed Devanagari subset listed above.

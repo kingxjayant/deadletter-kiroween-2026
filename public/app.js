@@ -2010,7 +2010,7 @@
   // web/src/app.mjs
   var $ = (id) => document.getElementById(id);
   var state = { tape: null, torn: /* @__PURE__ */ new Set(), cameraStream: null, scanning: false, seenTiles: /* @__PURE__ */ new Set() };
-  var SAMPLE = "Station 04 \u2192 McCluskieganj. Bridge washed out, network down since 06:20. All families accounted for. Send oral rehydration salts and two volunteers by morning. \u2014 J.K. \xB7 \u0928\u092E\u0938\u094D\u0924\u0947 \xB7 \u{1F56F}\uFE0F";
+  var SAMPLE = "Station 04 \u2192 McCluskieganj. Bridge washed out, network down since 06:20. All families accounted for. Send oral rehydration salts and two volunteers by morning. \u2014 J.K. \xB7 \u0928\u092E\u0938\u094D\u0924\u0947 \xB7 \u2726";
   function status(message, kind = "") {
     const node = $("live-status");
     node.textContent = message;

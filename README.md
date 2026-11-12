@@ -139,7 +139,9 @@ All original code, design and copy were created **inside** the Kiroween 2026
 Submission Period (30 Oct – 4 Dec 2026); no prior project was reused. Third-party
 libraries are disclosed in `NOTICE` and `docs/PROVENANCE.md`:
 qrcode-generator (MIT), jsQR (Apache-2.0), fast-check / esbuild / jsdom (MIT,
-dev-only). No external fonts, images, audio, datasets or trademarks.
+dev-only). No external images, audio, datasets or trademarks. The only bundled
+font is a locally hosted Noto Sans Devanagari subset (SIL OFL 1.1) so Hindi and
+Nagpuri messages render on any machine — nothing is fetched over the network.
 
 ## License
 
