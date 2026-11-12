@@ -1,0 +1,14 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "property-tests-on-codec-change",
+      "description": "The MDS guarantee is the product. Any edit to field or codec code runs the correctness properties immediately.",
+      "trigger": "PostFileSave",
+      "matcher": "web/src/(codec|gf256)\\.mjs$",
+      "action": { "type": "command", "command": "npm run test:pbt" },
+      "timeout": 90,
+      "enabled": true
+    }
+  ]
+}

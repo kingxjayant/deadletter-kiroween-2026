@@ -1,0 +1,32 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "protect-kiro-directory",
+      "description": "Injected before any file write: reminds the agent of the two disqualification traps (.kiro gitignored, pre-existing code).",
+      "trigger": "PreToolUse",
+      "matcher": "^(fs_write|fs_append|str_replace|delete_file)$",
+      "action": {
+        "type": "agent",
+        "prompt": "Compliance check before writing: never add /.kiro or any of its subfolders to .gitignore; never create or reuse code from before 30 Oct 2026; disclose every vendored library in docs/PROVENANCE.md; keep all materials in English. If the change touches .gitignore or docs/PROVENANCE.md, run `node tools/audit-submission.mjs` afterwards."
+      }
+    },
+    {
+      "name": "audit-on-session-start",
+      "description": "Prints the Official Rules compliance report at the start of every Kiro session.",
+      "trigger": "SessionStart",
+      "action": { "type": "command", "command": "node tools/audit-submission.mjs" },
+      "timeout": 60,
+      "enabled": true
+    },
+    {
+      "name": "audit-on-gitignore-change",
+      "description": "An accidental .kiro ignore rule is the single most common disqualification. Catch it the moment .gitignore is saved.",
+      "trigger": "PostFileSave",
+      "matcher": "\\.gitignore$",
+      "action": { "type": "command", "command": "node tools/audit-submission.mjs" },
+      "timeout": 60,
+      "enabled": true
+    }
+  ]
+}

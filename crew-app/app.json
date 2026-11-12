@@ -1,0 +1,9 @@
+{
+  "name": "deadletter-auditor",
+  "displayName": "Dead Letter Auditor",
+  "version": "0.1.0",
+  "description": "A Kiro Crew app that runs the Kiroween 2026 submission compliance gate on a schedule and surfaces the result in the Crew dashboard.",
+  "resources": "gateway",
+  "lifecycle": "gateway",
+  "skills": ["skills/kiroween-audit/SKILL.md"]
+}

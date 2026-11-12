@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "deadletter-codec": {
+      "command": "node",
+      "args": ["tools/mcp/deadletter-mcp.mjs"],
+      "env": {},
+      "disabled": false,
+      "autoApprove": [
+        "gf_explain",
+        "audit_submission",
+        "list_correctness_properties"
+      ],
+      "disabledTools": []
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "run-full-test-suite-on-save",
+      "description": "Unit + property-based + DOM smoke tests whenever source or tests change. Mirrors CI locally.",
+      "trigger": "PostFileSave",
+      "matcher": "(web/src/.*\\.mjs|tests/.*\\.test\\.mjs|tools/.*\\.mjs)$",
+      "action": { "type": "command", "command": "npm test" },
+      "timeout": 120,
+      "enabled": true
+    }
+  ]
+}

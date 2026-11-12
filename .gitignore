@@ -1,0 +1,19 @@
+# NOTE FOR KIRO / ALL AGENTS:
+# /.kiro MUST be committed. It is deliberately NOT listed here.
+# Adding .kiro (or any subfolder) to this file DISQUALIFIES the Kiroween entry.
+# node tools/audit-submission.mjs enforces this.
+
+node_modules/
+.env
+.env.*
+!.env.example
+*.log
+npm-debug.log*
+coverage/
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+.cache/
+*.tmp
+*.swp

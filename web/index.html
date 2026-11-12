@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0d0b09" />
+  <meta name="description" content="DEAD LETTER — a tear-tolerant paper telegram that carries a message where the internet cannot go. Kiroween 2026, Resurrection." />
+  <title>DEAD LETTER OFFICE — messages that outlive the network</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="vendor/jsQR.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the desk</a>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="sigil" aria-hidden="true">
+      <svg viewBox="0 0 64 64" width="52" height="52" role="presentation">
+        <path d="M32 4C19 4 10 14 10 29v27l7-6 7 6 8-6 8 6 7-6 7 6V29C54 14 45 4 32 4Z" fill="none" stroke="currentColor" stroke-width="2.2"/>
+        <circle cx="24" cy="28" r="3.4" fill="currentColor"/><circle cx="40" cy="28" r="3.4" fill="currentColor"/>
+        <path d="M23 40h18M27 44h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M4 18h8M52 18h8M6 34h6M52 34h6" stroke="currentColor" stroke-width="1.4" opacity=".7"/>
+      </svg>
+    </div>
+    <div class="masthead-copy">
+      <p class="eyebrow">Kiroween 2026 · Resurrection · Station 04</p>
+      <h1>THE DEAD LETTER OFFICE</h1>
+      <p class="tagline">Send a message where the internet cannot go. <em>Print it. Tear it. Resurrect it.</em></p>
+    </div>
+    <div class="signal" aria-label="Application status">
+      <span class="signal-dot"></span>
+      <div><strong>NO SIGNAL REQUIRED</strong><small>offline · no server · no account · no key</small></div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="intro" aria-labelledby="intro-title">
+    <h2 id="intro-title">The telegram is dead. Long live the telegram.</h2>
+    <p>
+      In flood-prone districts, disaster zones, shuttered networks and villages with one bar of 2G,
+      the cloud is a rumour. <strong>DEAD LETTER</strong> resurrects the 19th-century paper tape:
+      your message becomes a strip of QR-coded tiles with a human-readable telegram fallback.
+      A systematic Cauchy Reed–Solomon code means <strong id="intro-kn">{{K}} of {{N}} strips</strong> rebuild the
+      whole message — even if the rest are torn, stained or never arrive.
+    </p>
+    <div class="intro-stats">
+      <div><b>0</b><span>servers</span></div>
+      <div><b>0</b><span>API keys</span></div>
+      <div><b>100%</b><span>client-side</span></div>
+      <div><b>SHA-256</b><span>verified on revival</span></div>
+    </div>
+  </section>
+
+  <nav class="tabs" aria-label="Workflow">
+    <button id="tab-compose" class="tab active" aria-selected="true" aria-controls="panel-compose" role="tab"><span>01</span> Commit to paper</button>
+    <button id="tab-revive" class="tab" aria-selected="false" aria-controls="panel-revive" role="tab"><span>02</span> Resurrect</button>
+    <button id="btn-demo" class="tab demo" title="Runs a full end-to-end demo in one click">▶ One-click demo</button>
+  </nav>
+
+  <p id="live-status" class="live-status" role="status" aria-live="polite">The desk is quiet. Awaiting a message.</p>
+
+  <section id="panel-compose" class="panel" role="tabpanel" aria-labelledby="tab-compose">
+    <div class="desk-grid">
+      <div class="card composer">
+        <div class="card-head">
+          <h3>Write your last message</h3>
+          <span class="stamp">FORM 13-B / TELEGRAM</span>
+        </div>
+        <label for="message">Message <small>(Unicode supported — हिन्दी, Nagpuri, emoji, anything)</small></label>
+        <textarea id="message" rows="6" spellcheck="false" placeholder="Write something worth carrying across a dead network…"></textarea>
+        <div class="composer-meta">
+          <span id="char-count">0 bytes</span>
+          <button id="btn-sample" class="link-button" type="button">insert a sample transmission</button>
+        </div>
+
+        <div class="controls">
+          <div class="control">
+            <label for="k-slider">Source strips <b id="k-value">8</b></label>
+            <input id="k-slider" type="range" min="2" max="16" value="8" />
+            <small>k — the minimum number of strips needed to resurrect</small>
+          </div>
+          <div class="control">
+            <label for="n-slider">Total strips <b id="n-value">14</b></label>
+            <input id="n-slider" type="range" min="3" max="32" value="14" />
+            <small>n — how many you print; n − k may be lost</small>
+          </div>
+        </div>
+
+        <button id="btn-commit" class="primary" type="button">✉ Commit to the paper tape</button>
+        <p class="fineprint">Nothing is uploaded. The tape is made inside this browser tab and stays here.</p>
+      </div>
+
+      <aside class="card explainer">
+        <h3>Why paper?</h3>
+        <ol>
+          <li><b>Print or photograph.</b> A cybercafé printer, a phone screen, a photocopy — any surface works.</li>
+          <li><b>Carry it.</b> Someone else scans the strips with their camera, or types the telegram letters if a QR is ruined.</li>
+          <li><b>Lose some.</b> Rain, torn corners, a missing page — the code only needs k strips.</li>
+          <li><b>Verify.</b> A SHA-256 fingerprint proves the resurrected message is byte-for-byte the original.</li>
+        </ol>
+        <div class="equation" aria-label="The maths in one line">
+          <code>G = [ I<sub>k</sub> ; C<sub>(n−k)×k</sub> ]</code>
+          <span>Cauchy matrix over GF(2⁸) → MDS → any k rows invertible</span>
+        </div>
+        <p class="fineprint">Useful for field health workers, offline classrooms, disaster relays, and anyone living through an internet shutdown.</p>
+      </aside>
+    </div>
+
+    <div id="tape-output" class="tape-output" hidden>
+      <div class="tape-head">
+        <div>
+          <h3>The tape is committed</h3>
+          <p id="tape-meta">—</p>
+        </div>
+        <div id="tape-health" class="health">INTACT</div>
+      </div>
+      <p class="tape-instruction">Tap a strip to tear it. Watch the counter — you can lose <b id="loss-budget">6</b> strips and still resurrect the message.</p>
+      <div id="tape-strip" class="tape-strip" aria-label="Printable paper tape"></div>
+      <div class="tape-actions">
+        <button id="btn-tear" class="ghost-button" type="button">✂ Tear strips at random</button>
+        <button id="btn-restore" class="ghost-button" type="button">Restore all strips</button>
+        <button id="btn-print" class="ghost-button" type="button">🖨 Print tape</button>
+        <button id="btn-copy" class="ghost-button" type="button">Copy tape text</button>
+        <button id="btn-download" class="ghost-button" type="button">↓ .deadletter file</button>
+        <button id="btn-to-revive" class="primary small" type="button">➜ Resurrect from surviving strips</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="panel-revive" class="panel" role="tabpanel" aria-labelledby="tab-revive" hidden>
+    <div class="desk-grid">
+      <div class="card">
+        <div class="card-head"><h3>Read what survived</h3><span class="stamp">INTAKE / SÉANCE</span></div>
+        <label for="tile-input">Paste tape text <small>(one DL1 strip per line)</small></label>
+        <textarea id="tile-input" rows="9" spellcheck="false" placeholder="DL1|…|checksum&#10;DL1|…|checksum"></textarea>
+
+        <div class="intake-actions">
+          <label class="file-button">↑ Open .deadletter / QR image<input id="file-input" type="file" accept=".deadletter,.json,.txt,image/*" multiple hidden /></label>
+          <button id="btn-camera" class="ghost-button" type="button">◉ Scan with camera</button>
+          <button id="btn-clear" class="link-button" type="button">clear</button>
+        </div>
+        <div id="camera-box" class="camera-box" hidden>
+          <video id="camera-video" playsinline muted></video>
+          <canvas id="camera-canvas" hidden></canvas>
+          <p id="camera-status">Point the camera at a tape strip…</p>
+          <button id="btn-camera-stop" class="ghost-button" type="button">Stop camera</button>
+        </div>
+
+        <button id="btn-revive" class="primary" type="button">☠ Resurrect the message</button>
+        <p class="fineprint">A strip with a broken checksum is discarded rather than trusted. No silent corruption.</p>
+      </div>
+
+      <div class="card result-card">
+        <div class="card-head"><h3>The message returns</h3><span id="verdict" class="stamp">AWAITING STRIPS</span></div>
+        <div id="result-empty" class="result-empty">
+          <div class="ouija" aria-hidden="true">✦ &nbsp; A B C D E F G H I J K L M &nbsp; ✦<br/>N O P Q R S T U V W X Y Z</div>
+          <p>Nothing has crossed over yet.</p>
+        </div>
+        <div id="result-body" hidden>
+          <pre id="result-text"></pre>
+          <div id="result-stats" class="result-stats"></div>
+          <p id="result-note" class="result-note"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why" aria-labelledby="why-title">
+    <h2 id="why-title">Built for the places the cloud forgot</h2>
+    <div class="why-grid">
+      <article><span class="num">01</span><h3>A real audience</h3><p>ASHA workers, rural teachers and volunteers in Bihar/Jharkhand move paper between connected and disconnected places every day. They have a printer and a phone camera, not a backend.</p></article>
+      <article><span class="num">02</span><h3>A resurrected medium</h3><p>Telegraph paper tape carried the world's messages before the network existed. We revived it with error-correcting maths instead of copper wire.</p></article>
+      <article><span class="num">03</span><h3>A haunted interface</h3><p>Torn strips go translucent, the resurrection meter drains, and the verdict is stamped in phosphor. Every spooky effect reports real state.</p></article>
+      <article><span class="num">04</span><h3>Spec-driven, verifiably</h3><p>EARS requirements, correctness properties, Kiro hooks and a local MCP server live in <code>/.kiro</code>. CI runs the property tests on every push.</p></article>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p><strong>DEAD LETTER OFFICE</strong> · Kiroween 2026 · Resurrection · built with Kiro · MIT licensed</p>
+  <p class="fineprint">All processing happens locally. No telemetry, no cookies, no analytics. Vendored offline: qrcode-generator (MIT), jsQR (Apache-2.0).</p>
+</footer>
+</body>
+</html>

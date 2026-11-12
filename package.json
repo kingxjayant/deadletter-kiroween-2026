@@ -1,0 +1,23 @@
+{
+  "name": "deadletter-kiroween-2026",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "DEAD LETTER — a tear-tolerant paper telegram that carries data where the internet cannot go. Kiroween 2026, Resurrection category.",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "test:pbt": "node --test tests/pbt.test.mjs",
+    "audit:submission": "node tools/audit-submission.mjs",
+    "vendor": "node tools/vendor-libs.mjs",
+    "serve": "node tools/serve.mjs",
+    "build": "node tools/build.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "fast-check": "^4.3.0",
+    "jsdom": "^29.1.1",
+    "jsqr": "^1.4.0",
+    "qrcode-generator": "^2.0.4"
+  },
+  "license": "MIT"
+}

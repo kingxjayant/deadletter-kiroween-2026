@@ -1,0 +1,24 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "sync-spec-map-and-usage-writeup",
+      "description": "When a spec changes, Kiro updates the spec map in README and the Kiro usage write-up so judges never read stale claims.",
+      "trigger": "PostFileSave",
+      "matcher": "\\.kiro/specs/.*(requirements|design|tasks)\\.md$",
+      "action": {
+        "type": "agent",
+        "prompt": "A Kiro spec file just changed. Update the spec table in README.md and the relevant section of docs/KIRO_USAGE.md so requirements, task IDs and correctness-property IDs stay consistent. Do not invent Kiro sessions that did not happen."
+      }
+    },
+    {
+      "name": "evidence-reminder-on-stop",
+      "description": "Before the agent finishes, remind the developer to log real session evidence for the hackathon write-up.",
+      "trigger": "Stop",
+      "action": {
+        "type": "agent",
+        "prompt": "If this session produced code changes, remind Jayant to append one row to docs/KIRO_EVIDENCE.md with date, Kiro surface used, command/PR and test output. Only real evidence belongs there."
+      }
+    }
+  ]
+}

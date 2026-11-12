@@ -1,0 +1,31 @@
+DEAD LETTER OFFICE — third-party notices
+========================================
+
+All original code in this repository is licensed under the MIT License (LICENSE).
+The following third-party components are used and disclosed as required by the
+Kiroween 2026 Official Rules ("must disclose any other pre-existing code or work
+incorporated into the Project").
+
+Runtime (vendored offline, no CDN, no network at runtime)
+--------------------------------------------------------
+1. qrcode-generator v2.0.4 — Kazuhiko Arase — MIT License
+   https://github.com/kazuhikoarase/qrcode-generator
+   Bundled into public/app.js by esbuild; MIT header preserved inline
+   (legalComments: "inline"). Used for QR SVGs on paper strips.
+
+2. jsQR v1.4.0 — Cosmo Wolfe / contributors — Apache License 2.0
+   https://github.com/cozmo/jsQR
+   Vendored verbatim as web/vendor/jsQR.js and public/vendor/jsQR.js.
+   Full license text: web/vendor/jsQR-LICENSE.txt.
+   Used for optional camera / QR-image strip scanning.
+
+Development only (not shipped to the browser)
+--------------------------------------------
+3. fast-check — MIT — property-based testing.
+4. esbuild — MIT — static bundling.
+5. jsdom — MIT — headless DOM smoke tests.
+6. Node.js built-in modules (node:test, node:crypto).
+
+No fonts, images, audio, video, datasets or trademarks from third parties are
+included. All SVG artwork, CSS, copy and documentation are original and created
+during the Kiroween 2026 Submission Period.

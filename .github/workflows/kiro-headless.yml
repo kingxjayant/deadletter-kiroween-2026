@@ -1,0 +1,51 @@
+# OPTIONAL — real Kiro CLI sessions driven from GitHub Actions.
+#
+# Jayant said he wants to build the app with Kiro via GitHub Actions. This is
+# that workflow. It uses the official community Kiro action, which runs
+# kiro-cli headless and opens a PR with the result. Each run is genuine Kiro
+# work and should be logged in docs/KIRO_EVIDENCE.md.
+#
+# Requires a repository secret KIRO_API_KEY (Kiro account → API key; a Pro/Pro+
+# or Power subscription may be required). If you do not have one, use the free
+# 4,000 Kiro credits in the Kiro IDE / CLI locally instead — do NOT fake it.
+# Never put the key in a file or a commit.
+
+name: Kiro agent (headless CLI)
+
+on:
+  issue_comment:
+    types: [created]
+  workflow_dispatch:
+    inputs:
+      prompt:
+        description: 'Instruction for the Kiro agent (must be a real spec task)'
+        required: true
+        type: string
+
+jobs:
+  kiro:
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'issue_comment' && startsWith(github.event.comment.body, '/kiro'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - uses: karancode/kiro-action@v0
+        with:
+          kiro_api_key: ${{ secrets.KIRO_API_KEY }}
+          prompt: ${{ github.event_name == 'workflow_dispatch' && inputs.prompt || github.event.comment.body }}
+          kiro_args: '--trust-all-tools'
+      - name: Verify whatever Kiro produced
+        run: npm test && npm run build && npm run audit:submission
