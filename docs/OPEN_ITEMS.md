@@ -1,4 +1,7 @@
-# Open items — every `[[...]]` placeholder, grouped by who fills it
+# Open items
+
+> Registration answers, copy-paste text and the two form traps: see
+> [`docs/DEVPOST_REGISTRATION.md`](DEVPOST_REGISTRATION.md). — every `[[...]]` placeholder, grouped by who fills it
 
 Run `npm run open:items` for a live file/line listing. Placeholders are
 intentional: they mark things that must come from **you**, from a **real Kiro
