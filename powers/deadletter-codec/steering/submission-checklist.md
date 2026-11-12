@@ -24,7 +24,7 @@ Credit request closes 1 Dec 2026 12:00 PM. Winners on/around 3 Feb 2027.
 - Bonus Blog Prize — 2,000 Kiro credits (100 winners).
 - Social Blitz — 3-month Kiro Pro+ (5 winners); hashtag must START the post.
 - Best Demo — $1,000, automatic, needs top-10% overall + top Presentation score.
-- Best Ghost of Kiroween Past — $2,000 ONLY with verified 2025 registration.
+- ❌ Best Ghost of Kiroween Past — **NOT ELIGIBLE** (confirmed no 2025 registration). Leave unchecked.
 - Best Kiro Crew App — $1,000, needs a separate public Crew-app repo.
 
 **Always run before submitting**

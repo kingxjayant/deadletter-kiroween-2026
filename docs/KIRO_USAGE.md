@@ -59,7 +59,8 @@ table beats an impressive invented one.
 | Surface | What I did | What was different | Evidence |
 | --- | --- | --- | --- |
 | Kiro IDE | `[[FILL]]` | `[[FILL]]` | `[[FILL: PR / screenshot path]]` |
-| Kiro CLI v3 (headless) | `.github/workflows/kiro-headless.yml` runs `kiro-cli` via the Kiro GitHub Action on a `/kiro` comment or workflow dispatch, opens a PR, then `npm test && npm run build && npm run audit:submission` gates it. | `[[FILL: e.g. no interactive approvals, needed a scoped custom agent, slower but reproducible in CI]]` | `[[FILL]]` |
+| Kiro CLI v3 (local, browser OAuth) | `[[FILL: e.g. "ran a scoped spec task from .kiro/specs with kiro-cli login"]]` | `[[FILL]]` | `[[FILL: transcript / PR]]` |
+| Kiro CLI headless in CI — **OPTIONAL** | `.github/workflows/kiro-headless.yml` is ready, but `KIRO_API_KEY` requires a **paid** Kiro plan. With only the free 4,000 hackathon credits, use the IDE/CLI locally and **delete this row**. See `docs/KIRO_CREDITS.md`. | `[[FILL only if it really ran]]` | `[[FILL]]` |
 | Kiro Web | `[[FILL]]` | `[[FILL]]` | `[[FILL]]` |
 | Kiro Crew | `crew-app/` is a small Crew app that audits a Kiroween submission on a schedule. | `[[FILL: persistent sessions, memory, scheduled jobs vs one-shot IDE chat]]` | `[[FILL: separate public repo URL]]` |
 

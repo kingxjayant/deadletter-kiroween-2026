@@ -15,7 +15,7 @@ Jayant's action.
 | A5 | Video >3 min / private / copyrighted audio | High | `docs/VIDEO_SCRIPT.md` timed to 2:45, silence or original audio only | `[[FILL: record + upload]]` |
 | A6 | Missing live URL or credentials | High | Static Pages app, zero login, judge instructions in `docs/SUBMISSION_COPY.md` | Add real URL after deploy |
 | A7 | Student prize details incomplete | Medium | Field-by-field checklist | `[[FILL: LinkedIn, student email, year/degree, enrolment proof]]` |
-| A8 | "Ghost of Kiroween Past" claimed without 2025 registration | Medium | Checklist says verify, never guess | `[[FILL: check Devpost account]]` |
+| A8 | ~~"Ghost of Kiroween Past" claimed without 2025 registration~~ | **RESOLVED** | You confirmed on 12 Nov 2026 that you did **not** register for Kiroween 2025. Bonus marked ❌ NOT ELIGIBLE in `docs/SUBMISSION_COPY.md`; leave unchecked | None |
 | A9 | Bank/tax/identity verification on winning | Low (post-win) | Rules §4/§8: affidavit, W-8BEN for non-US residents, 10 business days to return forms | Keep ID/address consistent with Devpost profile |
 
 ## B. Competitive risks

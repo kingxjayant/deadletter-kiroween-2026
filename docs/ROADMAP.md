@@ -39,8 +39,8 @@ Target: submit by **Thu 3 Dec evening IST**, with 24+ hours of buffer.
 ## Week 3 — lock and submit (26 Nov – 3 Dec)
 - [ ] Confirm student prize details: LinkedIn, student email (or enrolment
       proof), year/degree, Marwari College Ranchi; keep proof ready.
-- [ ] Check whether you registered for Kiroween 2025 — tick "Ghost of Past"
-      only if verified.
+- [x] Confirmed **not** registered for Kiroween 2025 → ❌ leave the
+      Best Ghost of Kiroween Past bonus unchecked (organisers verify records).
 - [ ] Fill the Devpost draft form completely using `docs/SUBMISSION_COPY.md`.
       Save drafts often; no edits after the deadline.
 - [ ] Re-read the Official Rules once more for any update on the Updates tab.

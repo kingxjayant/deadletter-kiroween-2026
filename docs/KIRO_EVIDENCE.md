@@ -36,9 +36,10 @@ both a rules risk and easy to spot.
    implement task 2.7 "add a `decodeTape` overload that reports the exact tiles
    used" — a small, real, testable change. Commit as a PR.
 2. **IDE, Correctness:** run the properties on the codec spec; save the screenshot.
-3. **CLI headless:** add `KIRO_API_KEY` as a repo secret, open an issue, comment
-   `/kiro add an accessibility test for the tear keyboard interaction`, review
-   the PR Kiro opens.
+3. **CLI locally (free account):** `kiro-cli login` (browser OAuth), then run a
+   scoped task with the workspace `.kiro` config; save the transcript.
+   *Headless in CI is optional and needs a paid-plan `KIRO_API_KEY` — see
+   `docs/KIRO_CREDITS.md`. If you have no API key, skip this rather than claim it.*
 4. **Hook proof:** edit `cauchyCoefficient` deliberately wrong, save, watch the
    PBT hook fail, then fix it. Save both outputs — this is a great 10-second
    story for the demo video.

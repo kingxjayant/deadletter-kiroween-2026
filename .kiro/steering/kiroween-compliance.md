@@ -32,8 +32,9 @@ Derived from https://kiroween.devpost.com/rules and /details/faqs (read 12 Nov 2
   student email, year/degree, school for every member; proof may be requested),
   **Bonus Blog**, **Social Blitz** (`#KiroweenHackathon26` at the very START of
   the post), **Best Demo** (automatic).
-- **Best Ghost of Kiroween Past** ONLY if Jayant actually registered for
-  Kiroween 2025 — verify before ticking, never guess.
+- **Best Ghost of Kiroween Past — NOT ELIGIBLE.** Jayant confirmed on
+  12 Nov 2026 that he did NOT register for Kiroween 2025. Never tick this bonus;
+  the organisers verify against 2025 records and a false claim is a rules risk.
 - **Best Kiro Crew App** requires a separate public GitHub repo for a Crew app.
 
 ## Honesty

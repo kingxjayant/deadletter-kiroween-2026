@@ -98,7 +98,7 @@ printers stay scannable. See `.kiro/specs/deadletter-codec/design.md`.
 | `.kiro/` | **Specs, steering, hooks, MCP config, custom agents — committed** |
 | `powers/deadletter-codec/` | Local Kiro power (POWER.md + 2 steering files) |
 | `crew-app/` | Optional Kiro Crew app for the $1,000 bonus prize |
-| `docs/` | Kiro write-up, evidence log, submission copy, video script, blog/social drafts |
+| `docs/` | Kiro write-up, evidence log, submission copy, video script, blog/social drafts, credits guide, GitHub push guide, 6 real browser screenshots |
 
 ---
 
@@ -113,7 +113,7 @@ printers stay scannable. See `.kiro/specs/deadletter-codec/design.md`.
 | MCP | `.kiro/settings/mcp.json` + `tools/mcp/deadletter-mcp.mjs` | 5 real tools; CI smoke test calls the server |
 | Powers | `powers/deadletter-codec/POWER.md` | Local power, activates on codec keywords |
 | Custom agents | `.kiro/agents/*.md` | Read-only codec reviewer + submission auditor |
-| CLI headless in CI | `.github/workflows/kiro-headless.yml` | `/kiro` comment or workflow_dispatch → real PR |
+| CLI headless in CI (optional, needs a paid-plan `KIRO_API_KEY`) | `.github/workflows/kiro-headless.yml` | `/kiro` comment → real PR; otherwise use `kiro-cli login` locally with the free credits |
 | Kiro Crew | `crew-app/` | Optional separate app for Best Kiro Crew App |
 | IDE vs CLI vs Web vs Crew | `docs/KIRO_USAGE.md` | Fill with real observations |
 

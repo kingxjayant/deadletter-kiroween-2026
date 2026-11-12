@@ -5,10 +5,11 @@
 # kiro-cli headless and opens a PR with the result. Each run is genuine Kiro
 # work and should be logged in docs/KIRO_EVIDENCE.md.
 #
-# Requires a repository secret KIRO_API_KEY (Kiro account → API key; a Pro/Pro+
-# or Power subscription may be required). If you do not have one, use the free
-# 4,000 Kiro credits in the Kiro IDE / CLI locally instead — do NOT fake it.
-# Never put the key in a file or a commit.
+# Requires a repository secret KIRO_API_KEY. API-key auth is a PAID feature
+# (Kiro Pro / Pro+ / Pro Max / Power); free-tier and hackathon-credit accounts
+# must use browser OAuth locally instead. If you have no API key, use the free
+# 4,000 Kiro credits in the Kiro IDE / CLI locally — see docs/KIRO_CREDITS.md —
+# and DO NOT claim in the write-up that Kiro ran in CI. Never commit the key.
 
 name: Kiro agent (headless CLI)
 

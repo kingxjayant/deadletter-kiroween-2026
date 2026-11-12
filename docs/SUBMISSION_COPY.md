@@ -18,7 +18,7 @@ Deadline: 4 Dec 2026, 2:00 PM PT = **5 Dec 2026, 3:30 AM IST**.
 - ✅ Bonus Blog Prize (2,000 Kiro credits, 100 winners)
 - ✅ Social Blitz Prize (3-month Kiro Pro+, 5 winners)
 - ✅ Best Demo (automatic, no extra step)
-- ☐ Best Ghost of Kiroween Past — **ONLY if you actually registered for Kiroween 2025.** Check your Devpost account; never guess.
+- ❌ **NOT ELIGIBLE: Best Ghost of Kiroween Past** — you confirmed on 12 Nov 2026 that you did **not** register for Kiroween 2025. Leave this unchecked; the organisers verify against 2025 records.
 - ☐ Best Kiro Crew App — only after `crew-app/` is published as its own public repo.
 - ☐ Best Startup Project — only if you are genuinely a founder with a startup website.
 
@@ -34,7 +34,8 @@ Deadline: 4 Dec 2026, 2:00 PM PT = **5 Dec 2026, 3:30 AM IST**.
 - Age: 20
 - Institution: Marwari College, Ranchi, Jharkhand, India
 - Year & degree: `[[e.g. B.Sc. / B.Tech / BCA, 2nd year]]`
-- Student email: `[[college email if you have one; otherwise use jayant.explains.ai@gmail.com and be ready to show an enrolment letter / ID]]`
+- Personal email (already known): `jayant.explains.ai@gmail.com`
+- Student email: `[[college email if you have one; otherwise use the personal email above and keep an enrolment letter / college ID ready as proof]]`
 - LinkedIn: `[[LINKEDIN_URL]]`
 - Team: solo (if you add teammates, ALL must be students and each needs the same details)
 

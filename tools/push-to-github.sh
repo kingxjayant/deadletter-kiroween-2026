@@ -6,11 +6,17 @@
 # this one repo (Contents: read/write, Pages: read/write, Actions: read/write,
 # Metadata: read), set an expiry of 7 days, and REVOKE IT right after this runs.
 #
-# Usage (on your own machine):
+# Usage (on your own machine OR in the Arena sandbox):
 #   export GITHUB_TOKEN='github_pat_...'
 #   export GITHUB_USERNAME='your-username'
 #   export REPO_NAME='deadletter-kiroween-2026'   # optional
 #   bash tools/push-to-github.sh
+#
+# Recommended: create the EMPTY public repo in the GitHub web UI first, then
+# issue a fine-grained token scoped to that one repo. The "create repo" call
+# below then fails harmlessly (a fine-grained token normally lacks the
+# "Repository creation" permission) and the push proceeds. See
+# docs/GITHUB_SETUP.md for the exact permission list.
 #
 # Prefer `git remote -v` + a normal `git push` with SSH/credential helper if you
 # already have GitHub set up — that avoids handling a token altogether.

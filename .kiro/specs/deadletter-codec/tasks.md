@@ -56,6 +56,7 @@
 - [ ] **5.5** Publish the blog post and the `#KiroweenHackathon26` social post
       during the Submission Period; add both URLs to the form.
 - [ ] **5.6** Fill in student details (LinkedIn, student email, year/degree,
-      Marwari College Ranchi) and confirm 2025 registration only if true.
+      Marwari College Ranchi). 2025 registration confirmed FALSE → leave the
+      Ghost of Kiroween Past bonus unchecked.
 - [ ] **5.7** Final `npm ci && npm test && npm run build && npm run audit:submission`
       on 3 Dec 2026, then submit 24 h before the deadline.
