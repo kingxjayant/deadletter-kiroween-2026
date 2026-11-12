@@ -23,8 +23,8 @@ Deadline: 4 Dec 2026, 2:00 PM PT = **5 Dec 2026, 3:30 AM IST**.
 - ☐ Best Startup Project — only if you are genuinely a founder with a startup website.
 
 **URLs**
-- GitHub repo: `https://github.com/[[USERNAME]]/deadletter-kiroween-2026`
-- Working app: `https://[[USERNAME]].github.io/deadletter-kiroween-2026/`
+- GitHub repo: `https://github.com/kingxjayant/deadletter-kiroween-2026`
+- Working app: `https://kingxjayant.github.io/deadletter-kiroween-2026/`
 - Demo video (public YouTube, < 3 min): `[[YOUTUBE_URL]]`
 - Blog post (third-party platform): `[[BLOG_URL]]`
 - Social post (starts with #KiroweenHackathon26): `[[SOCIAL_URL]]`
@@ -33,11 +33,12 @@ Deadline: 4 Dec 2026, 2:00 PM PT = **5 Dec 2026, 3:30 AM IST**.
 - Name: Jayant Kumar
 - Age: 20
 - Institution: Marwari College, Ranchi, Jharkhand, India
-- Year & degree: `[[e.g. B.Sc. / B.Tech / BCA, 2nd year]]`
+- Year & degree: B.Sc. Artificial Intelligence & Machine Learning — **1st year, Semester 2** (session 2025–2028)
 - Personal email (already known): `jayant.explains.ai@gmail.com`
-- Student email: `[[college email if you have one; otherwise use the personal email above and keep an enrolment letter / college ID ready as proof]]`
-- LinkedIn: `[[LINKEDIN_URL]]`
+- Student email: `jayant.explains.ai@gmail.com` — the college issues no institutional email. Enrolment proof (college ID card + admission receipt) is held privately and will be supplied only if the organisers request it. **Do not upload it to the public repo.**
+- LinkedIn: `https://in.linkedin.com/in/jayant-kumar-a180a6362`
 - Team: solo (if you add teammates, ALL must be students and each needs the same details)
+- Proof of enrolment: college ID card, Marwari College Ranchi (Ranchi University), session 2025–2028, class B.Sc. AI & ML, roll no. 14 — **private document, never committed to the public repo**. Contains personal data (phone, father's name, blood group).
 
 **Judge testing instructions**
 No account, credentials, API key or installation is needed. Open the live URL,

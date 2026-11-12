@@ -30,8 +30,7 @@ a backend, an API key, or reliable data.
 
 ## Try it (judges: 60 seconds, no install)
 
-1. Open the live app → **https://&lt;your-username&gt;.github.io/deadletter-kiroween-2026/**
-   *(add the real URL to `docs/SUBMISSION_COPY.md` after Pages deploys)*
+1. Open the live app → **https://kingxjayant.github.io/deadletter-kiroween-2026/**
 2. Press **▶ One-click demo** in the top-right of the tabs.
 3. Watch: message → printable tape → 6 strips torn → **VERIFIED · SHA-256**.
 4. Or do it by hand: write a message → **Commit to the paper tape** → click a few

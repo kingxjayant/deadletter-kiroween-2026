@@ -17,3 +17,12 @@ Thumbs.db
 .cache/
 *.tmp
 *.swp
+
+# Personal identity documents — enrolment proof contains a phone number,
+# parent's name, blood group and a photo. Keep it OUT of the public repo;
+# upload it privately to Devpost only if the organisers request proof.
+IDCARD*
+*IDCARD*
+*id-card*
+*admission-receipt*
+*enrolment-proof*

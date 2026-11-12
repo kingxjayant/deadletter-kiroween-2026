@@ -22,7 +22,7 @@ Biggest lesson: with vibe coding I was reviewing code. With specs I'm reviewing 
 
 [[FILL: one specific real detail — e.g. "The PBT hook caught a wrong parity index at 11:40 pm; here's the diff."]]
 
-Live demo: [[LIVE_URL]] · Repo (MIT, /.kiro committed): [[GITHUB_URL]]
+Live demo: https://kingxjayant.github.io/deadletter-kiroween-2026/ · Repo (MIT, /.kiro committed): https://github.com/kingxjayant/deadletter-kiroween-2026
 ```
 
 ## Posting notes

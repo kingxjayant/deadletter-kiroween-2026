@@ -10,7 +10,7 @@ Replace every [[FILL]] with real evidence before publishing.
 
 *Written as part of the Kiroween 2026 hackathon (AWS Kiro × Devpost). My project,
 **THE DEAD LETTER OFFICE**, is entered in the Resurrection category. Repo:
-`[[GITHUB_URL]]` · Live demo: `[[LIVE_URL]]`*
+`https://github.com/kingxjayant/deadletter-kiroween-2026` · Live demo: `https://kingxjayant.github.io/deadletter-kiroween-2026/`*
 
 ---
 
@@ -124,7 +124,7 @@ of Cauchy matrices.
 
 ## Try it
 
-Open `[[LIVE_URL]]` and press **▶ One-click demo**. Write a message, commit it
+Open `https://kingxjayant.github.io/deadletter-kiroween-2026/` and press **▶ One-click demo**. Write a message, commit it
 to paper, tear six strips, and resurrect it. Or clone the repo and run
 `npm ci && npm test && npm run build && npm run serve`.
 

@@ -1,7 +1,22 @@
 # Push to GitHub — exact steps (agent-push option)
 
-You asked me to push from this sandbox. I can do that, but I need three things
-from you first. Everything is prepared in `tools/push-to-github.sh`.
+> ## ✅ STATUS — pushed on 12 Nov 2026
+> Repo: **https://github.com/kingxjayant/deadletter-kiroween-2026** (public)
+> · Live: **https://kingxjayant.github.io/deadletter-kiroween-2026/**
+>
+> You supplied a **classic** `ghp_…` token (scopes `repo, workflow`) instead of
+> a fine-grained one. `tools/push-to-github.sh` was hardened so the token is
+> never written to `.git/config`, any file, or a commit — auth is injected only
+> into the single `git push` command via `http.extraHeader`.
+>
+> ⚠️ **That token appeared in a chat message, so treat it as compromised.
+> REVOKE IT NOW at https://github.com/settings/tokens**, then check
+> https://github.com/settings/security-log for anything unexpected. If you ever
+> reuse a token, rotate it. The steps below are kept as the reference path for
+> future pushes / token rotation.
+
+You asked me to push from this sandbox. Everything is prepared in
+`tools/push-to-github.sh`.
 
 ## Step 1 — create the EMPTY public repo yourself (30 seconds)
 
