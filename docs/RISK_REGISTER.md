@@ -8,12 +8,12 @@ Jayant's action.
 
 | # | Risk | Severity | Fix in this repo | Owner action |
 | --- | --- | --- | --- | --- |
-| A1 | `/.kiro` gitignored or missing | **FATAL** | Committed at root; `.gitignore` has an explicit warning comment; `tools/audit-submission.mjs` fails CI and Kiro hooks if ignored | Verify on GitHub after push |
+| A1 | ~~`/.kiro` gitignored or missing~~ | **RESOLVED** | Committed at root; `.gitignore` has an explicit warning comment; `tools/audit-submission.mjs` fails CI. **Verified remotely**: GitHub API `GET /contents/.kiro` → agents, hooks, settings, specs, steering | None |
 | A2 | Project deemed not new | **FATAL** | `docs/PROVENANCE.md` dates everything to 12 Nov 2026; GitHub API confirmed `kingxjayant/deadletter-kiroween-2026` did not exist before 12 Nov 2026 | None — confirmed |
 | A3 | Insufficient Kiro usage ("Judges' sole discretion") | **FATAL** | 2 specs, 5 steering files, 4 hooks, MCP server, 2 agents, 1 power, CLI headless workflow, PBT suite | **Must run real Kiro sessions** and log them in `docs/KIRO_EVIDENCE.md` |
-| A4 | No license / license not detectable | High | MIT `LICENSE` at root | Check GitHub "About" shows MIT |
+| A4 | ~~No license / license not detectable~~ | **RESOLVED** | MIT `LICENSE` at root; GitHub API reports `license.spdx_id = MIT` on the public repo | None |
 | A5 | Video >3 min / private / copyrighted audio | High | `docs/VIDEO_SCRIPT.md` timed to 2:45, silence or original audio only | `[[FILL: record + upload]]` |
-| A6 | Missing live URL or credentials | High | Static Pages app, zero login, judge instructions in `docs/SUBMISSION_COPY.md` | Confirm `https://kingxjayant.github.io/deadletter-kiroween-2026/` loads after the Pages workflow completes |
+| A6 | ~~Missing live URL or credentials~~ | **RESOLVED** | Public Pages URL returns HTTP 200; both Actions runs succeeded; real-browser VERIFIED flow with zero errors (evidence `07`) | None |
 | A7 | ~~Student prize details incomplete~~ | **RESOLVED** | LinkedIn `https://in.linkedin.com/in/jayant-kumar-a180a6362`, personal email + private ID-card proof, 1st year Sem 2 B.Sc. AI & ML (2025–2028), Marwari College Ranchi | If Devpost insists on an institutional email, attach the ID card as proof |
 | A8 | ~~"Ghost of Kiroween Past" claimed without 2025 registration~~ | **RESOLVED** | You confirmed on 12 Nov 2026 that you did **not** register for Kiroween 2025. Bonus marked ❌ NOT ELIGIBLE in `docs/SUBMISSION_COPY.md`; leave unchecked | None |
 | A9 | Bank/tax/identity verification on winning | Low (post-win) | Rules §4/§8: affidavit, W-8BEN for non-US residents, 10 business days to return forms | Keep ID/address consistent with Devpost profile |

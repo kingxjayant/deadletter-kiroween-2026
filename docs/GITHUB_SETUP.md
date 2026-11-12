@@ -1,8 +1,13 @@
 # Push to GitHub — exact steps (agent-push option)
 
-> ## ✅ STATUS — pushed on 12 Nov 2026
-> Repo: **https://github.com/kingxjayant/deadletter-kiroween-2026** (public)
+> ## ✅ STATUS — pushed and verified on 12 Nov 2026
+> Repo: **https://github.com/kingxjayant/deadletter-kiroween-2026** (public,
+> MIT detected in About, `/.kiro` at root)
 > · Live: **https://kingxjayant.github.io/deadletter-kiroween-2026/**
+> · GitHub Actions: CI ✅ success, Pages deploy ✅ success
+> · Real Chromium on the public URL: `VERIFIED · SHA-256`, `8/14 ALIVE · 6 LOST`,
+>   Devanagari rendering, service worker registered, **zero console errors**
+>   (`docs/evidence/07-live-pages-verified.png`)
 >
 > You supplied a **classic** `ghp_…` token (scopes `repo, workflow`) instead of
 > a fine-grained one. `tools/push-to-github.sh` was hardened so the token is

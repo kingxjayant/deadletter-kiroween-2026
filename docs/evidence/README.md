@@ -13,6 +13,7 @@ gallery images and as the "app working on the device it was built for" proof.
 | `04-verified-mobile.png` | The same verified flow on a 390px phone viewport |
 | `05-devanagari-label.png` | Zoomed proof that the self-hosted Devanagari subset renders Hindi text |
 | `06-result-zoom.png` | Zoomed recovered message: exact Unicode round-trip, including नमस्ते |
+| `07-live-pages-verified.png` | **The public GitHub Pages deployment**, not the local preview: `https://kingxjayant.github.io/deadletter-kiroween-2026/` after the one-click demo |
 
 Verification performed (no console/page errors on either viewport):
 - `h1` = "THE DEAD LETTER OFFICE"
@@ -22,6 +23,14 @@ Verification performed (no console/page errors on either viewport):
 - recovered message includes Devanagari text and matches the original byte-for-byte
 - after a fix, `#result-empty` computes to `display: none` on success (the
   "Nothing has crossed over yet" placeholder no longer lingers above the result)
+
+**Remote deployment verification (12 Nov 2026):** after pushing to
+`kingxjayant/deadletter-kiroween-2026`, both GitHub Actions workflows completed
+with `success` (CI + Pages deploy). A fresh headless Chromium visit to the
+**public Pages URL** returned HTTP 200, `h1` = "THE DEAD LETTER OFFICE",
+one-click demo → `VERIFIED · SHA-256`, `8/14 ALIVE · 6 LOST`, Devanagari text
+present, service worker registered, and **zero console/page errors**. Screenshot
+`07` is from that public URL.
 
 > These are **app** screenshots, not Kiro session evidence. Kiro session
 > evidence goes in the table in `docs/KIRO_EVIDENCE.md` with PR links and
