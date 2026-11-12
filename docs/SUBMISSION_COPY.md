@@ -35,7 +35,7 @@ Deadline: 4 Dec 2026, 2:00 PM PT = **5 Dec 2026, 3:30 AM IST**.
 - Institution: Marwari College, Ranchi, Jharkhand, India
 - Year & degree: B.Sc. Artificial Intelligence & Machine Learning — **1st year, Semester 2** (session 2025–2028)
 - Personal email (already known): `jayant.explains.ai@gmail.com`
-- Student email: `jayant.explains.ai@gmail.com` — the college issues no institutional email. Enrolment proof (college ID card + admission receipt) is held privately and will be supplied only if the organisers request it. **Do not upload it to the public repo.**
+- Student email: `jayant.explains.ai@gmail.com` — the college issues no institutional email. Enrolment proof: the **college ID card** (`IDCARD.jpg`, held privately) is ready; you also said an admission receipt is ready but have not attached it yet. Supply either only if the organisers request proof. **Do not upload it to the public repo.**
 - LinkedIn: `https://in.linkedin.com/in/jayant-kumar-a180a6362`
 - Team: solo (if you add teammates, ALL must be students and each needs the same details)
 - Proof of enrolment: college ID card, Marwari College Ranchi (Ranchi University), session 2025–2028, class B.Sc. AI & ML, roll no. 14 — **private document, never committed to the public repo**. Contains personal data (phone, father's name, blood group).

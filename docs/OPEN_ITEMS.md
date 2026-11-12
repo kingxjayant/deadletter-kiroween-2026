@@ -15,7 +15,7 @@ session**, or from a **published URL**. Never replace one with an invented claim
 | Institution | Marwari College, Ranchi (Ranchi University), Jharkhand, India |
 | Year & degree | B.Sc. Artificial Intelligence & Machine Learning, 1st year / Semester 2, session 2025–2028 |
 | Contact email | `jayant.explains.ai@gmail.com` (no institutional email issued) |
-| Enrolment proof | College ID card + admission receipt — **held privately, never committed to the public repo**; upload only to Devpost if the organisers ask |
+| Enrolment proof | **College ID card** `IDCARD.jpg` received and held privately (never committed). An admission receipt was mentioned as ready but not yet attached — add it when available. Upload only to Devpost if asked |
 | Kiroween 2025 registration | **No** → Ghost of Kiroween Past bonus is NOT eligible |
 
 Known already: Jayant Kumar · 20 · solo entrant · Resurrection category.

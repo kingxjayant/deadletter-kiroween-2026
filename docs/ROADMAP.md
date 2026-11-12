@@ -39,8 +39,9 @@ Target: submit by **Thu 3 Dec evening IST**, with 24+ hours of buffer.
 ## Week 3 — lock and submit (26 Nov – 3 Dec)
 - [x] Student prize details confirmed: LinkedIn
       https://in.linkedin.com/in/jayant-kumar-a180a6362,
-      `jayant.explains.ai@gmail.com` + private college ID card / admission
-      receipt as enrolment proof, **1st year Sem 2, B.Sc. AI & ML (2025–2028)**,
+      `jayant.explains.ai@gmail.com` + private college ID card as enrolment
+      proof (admission receipt still to be attached), **1st year Sem 2,
+      B.Sc. AI & ML (2025–2028)**,
       Marwari College Ranchi. Keep the ID card OUT of the public repo.
 - [x] Confirmed **not** registered for Kiroween 2025 → ❌ leave the
       Best Ghost of Kiroween Past bonus unchecked (organisers verify records).
