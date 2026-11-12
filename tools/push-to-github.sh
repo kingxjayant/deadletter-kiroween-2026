@@ -2,9 +2,10 @@
 # Push DEAD LETTER to a public GitHub repo and enable GitHub Pages (Actions build).
 #
 # SECURITY: the token is read ONLY from the GITHUB_TOKEN environment variable.
-# It is NEVER written to a file, NEVER embedded in a git remote URL, NEVER
-# committed and NEVER printed. Auth is injected per-command via git's
-# http.extraHeader and curl -H, so even .git/config stays clean.
+# It is NEVER written to a file, NEVER stored in a git remote URL, NEVER
+# committed and NEVER printed. The persisted `origin` is credential-free; only
+# the one `git push` command receives a token-bearing URL as an argv value.
+# curl API calls use -H. Check `git config --get remote.origin.url` afterwards.
 # REVOKE THE TOKEN IMMEDIATELY after this script reports success.
 #
 # Usage:
@@ -75,15 +76,22 @@ git add -A
 git -c user.name="Jayant Kumar" -c user.email="jayant.explains.ai@gmail.com" \
   commit -m "Prepare DEAD LETTER for public GitHub deployment" || echo "(nothing new to commit)"
 
-# Clean remote: NO credential in .git/config. Auth is passed only to this one push.
+# The persisted remote is credential-free. Only the single push command below
+# receives a token-bearing URL as an argv value; it is never written to
+# .git/config, any file, or a commit. (http.extraHeader is unreliable across
+# git/libcurl versions and can make git fall back to an interactive prompt.)
 CLEAN_REMOTE="https://github.com/${GITHUB_USERNAME}/${REPO_NAME}.git"
 if git remote get-url origin >/dev/null 2>&1; then
   git remote set-url origin "$CLEAN_REMOTE"
 else
   git remote add origin "$CLEAN_REMOTE"
 fi
-echo "==> Pushing main (credential injected in-memory for this command only)"
-git -c "http.extraHeader=${AUTH_HEADER}" push -u origin main
+PUSH_URL="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_USERNAME}/${REPO_NAME}.git"
+echo "==> Pushing main (one-shot credential, never persisted)"
+git push "$PUSH_URL" main
+# Create remote-tracking refs and upstream using the CLEAN remote (public repo).
+git fetch origin main >/dev/null 2>&1 || true
+git branch --set-upstream-to=origin/main main >/dev/null 2>&1 || true
 
 echo "==> Enabling GitHub Pages with the Actions build type"
 PAGES_CODE="$(api POST "https://api.github.com/repos/${GITHUB_USERNAME}/${REPO_NAME}/pages" \
