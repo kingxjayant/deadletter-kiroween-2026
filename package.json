@@ -10,7 +10,8 @@
     "audit:submission": "node tools/audit-submission.mjs",
     "vendor": "node tools/vendor-libs.mjs",
     "serve": "node tools/serve.mjs",
-    "build": "node tools/build.mjs"
+    "build": "node tools/build.mjs",
+    "open:items": "node tools/check-placeholders.mjs"
   },
   "devDependencies": {
     "esbuild": "^0.28.2",
