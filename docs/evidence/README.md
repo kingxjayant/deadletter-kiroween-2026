@@ -35,3 +35,22 @@ present, service worker registered, and **zero console/page errors**. Screenshot
 > These are **app** screenshots, not Kiro session evidence. Kiro session
 > evidence goes in the table in `docs/KIRO_EVIDENCE.md` with PR links and
 > command output. Keep the two kinds of proof separate.
+
+---
+
+## Pending: first real Kiro session (12 Nov 2026)
+
+Captured on a college lab PC; the originals are being transferred from Jayant's
+phone. **Expected filenames once uploaded** — rename on arrival so the evidence
+log in `docs/KIRO_EVIDENCE.md` can point at stable paths:
+
+| Expected file | What it must show |
+| --- | --- |
+| `kiro-01-chat.png` | Kiro's chat response reviewing `.kiro/specs/deadletter-codec` and confirming the `sha16` pre-padding behaviour |
+| `kiro-02-credits.png` | The **0.76 credits / 1m 16s** usage readout for that session |
+| `kiro-03-diff.png` | The `tests/codec.test.mjs` diff Kiro produced (one file changed) |
+| `kiro-04-settings.png` | The Settings sidebar showing **Specs, Agent Hooks, Agent Steering & Skills** |
+| `kiro-05-terminal-blocked.png` | *(if captured)* the `execute_pwsh` **exit -1** host-policy error — disclosing the blocked tool is a credibility win, not a weakness |
+
+These are **Kiro** evidence. They stay separate from the six app screenshots
+above, which show the product working, not how it was built.
