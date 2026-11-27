@@ -38,19 +38,34 @@ present, service worker registered, and **zero console/page errors**. Screenshot
 
 ---
 
-## Pending: first real Kiro session (12 Nov 2026)
+## First real Kiro session — 2026-11-23, 12:16 (Kiro IDE, Free plan)
 
-Captured on a college lab PC; the originals are being transferred from Jayant's
-phone. **Expected filenames once uploaded** — rename on arrival so the evidence
-log in `docs/KIRO_EVIDENCE.md` can point at stable paths:
+Captured on a college lab PC (Windows, no git CLI, repo opened from a GitHub
+ZIP). The clock in the taskbar reads **23-11-2026 12:16**, which is the date of
+record for this session. Session meter: **0.76 credits, 1m 16s, 1 file changed**.
 
-| Expected file | What it must show |
+| File | What it shows |
 | --- | --- |
-| `kiro-01-chat.png` | Kiro's chat response reviewing `.kiro/specs/deadletter-codec` and confirming the `sha16` pre-padding behaviour |
-| `kiro-02-credits.png` | The **0.76 credits / 1m 16s** usage readout for that session |
-| `kiro-03-diff.png` | The `tests/codec.test.mjs` diff Kiro produced (one file changed) |
-| `kiro-04-settings.png` | The Settings sidebar showing **Specs, Agent Hooks, Agent Steering & Skills** |
-| `kiro-05-terminal-blocked.png` | *(if captured)* the `execute_pwsh` **exit -1** host-policy error — disclosing the blocked tool is a credibility win, not a weakness |
+| `kiro-01-chat-and-credits.png` | Kiro's review of the codec spec: R2.1 (k×k submatrix inversion over GF(2⁸)) and R2.5 (trimmed-bytes SHA-256 compared to the tile header) both ticked, the note that `sha16` fingerprints the **pre-padding** bytes, and the "New test added" summary. Bottom bar: **Est. Credits Used: 0.76 · Elapsed time: 1m 16s** |
+| `kiro-02-diff.png` | The actual one-file diff Kiro produced in `tests/codec.test.mjs`, including `slice(0, 8)` survival, the four `assert.equal` checks and the UTF-8 `deepEqual` |
+| `kiro-03-settings.png` | Kiro Settings: **Specs**, **Agent Hooks**, **Agent Steering & Skills** and **MCP Servers** |
 
-These are **Kiro** evidence. They stay separate from the six app screenshots
-above, which show the product working, not how it was built.
+### What the settings screenshot proves — including the bad news
+
+`kiro-03-settings.png` is the most useful of the three because of what it does
+**not** show: Specs offers only "+ Create New Spec", Hooks only "+ Create New
+Hook", Agent Steering lists only **Global** (three built-in skills), and MCP
+Servers is empty. **The repository's `.kiro/` configuration was not loaded in
+that session.** Kiro therefore worked by reading the source tree, not through
+the specs, steering, hooks or MCP server committed here.
+
+That is disclosed rather than hidden, and it defines the next session's goal:
+open the folder so the sidebar lists the five steering docs, the four hooks, the
+`deadletter-codec` MCP server and the `Test Reed-Solomon` spec, *then* start
+work. See `docs/OPEN_ITEMS.md`.
+
+No screenshot exists for the blocked `execute_pwsh` call (exit -1); it is
+recorded in `docs/KIRO_EVIDENCE.md` as a reported-but-uncaptured event.
+
+These are **Kiro** evidence and stay separate from the app screenshots above,
+which show the product working, not how it was built.

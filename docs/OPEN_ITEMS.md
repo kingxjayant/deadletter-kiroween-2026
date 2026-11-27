@@ -70,30 +70,46 @@ all complete and verified.
 
 ---
 
-## Update — 12 Nov 2026, after the first real Kiro session
+## Update — after the first real Kiro session (2026-11-23, 12:16)
 
-**Done (verified here):**
-- Kiro IDE session on the Free plan: 0.76 credits, 1m16s, one file changed.
-- Kiro's review claim is **correct**: the `sha16` fingerprint is computed over
-  the un-padded message bytes (`codec.mjs:156`), with zero-padding applied only
-  afterwards (line 149).
-- Kiro's test is in `tests/codec.test.mjs` and passes: `npm test` → **26/26**.
-  It was reconstructed here because the lab PC had no git CLI.
-- The test was **strengthened**: Kiro's version kept only source tiles, which
-  needs no matrix inversion. A mixed case (4 source + 4 parity) now also has to
-  recover the same Nagpuri string, so the Cauchy system is genuinely exercised.
+**Closed:**
+- Kiro IDE session on the Free plan: **0.76 credits, 1m 16s, 1 file changed**.
+- Evidence uploaded and committed: `docs/evidence/kiro-01-chat-and-credits.png`,
+  `kiro-02-diff.png`, `kiro-03-settings.png`.
+- Kiro's review claim is **correct**: the `sha16` fingerprint covers the
+  un-padded message bytes (`codec.mjs:156`); padding happens at line 149.
+- Kiro's test is in `tests/codec.test.mjs`, reconstructed from the diff
+  screenshot, and passes. `npm test` → **27/27**.
+- A second test was added (by Jayant, not Kiro) that drops 4 source tiles too,
+  forcing 4 parity tiles into the Cauchy solve. Kiro's version only kept the 8
+  systematic tiles, which needs no matrix inversion — so the "worst case" it
+  described is actually the *easiest* numeric path.
 
-**Newly open, in priority order:**
-1. **Upload the Kiro screenshots** (chat, credit usage, diff, Settings sidebar)
-   and the screen recording. They were captured on the lab PC and the local
-   files were deleted — if they were not copied to your phone or cloud drive
-   first, they are **gone** and the fastest fix is one more 5-minute Kiro IDE
-   session on a machine you control, screenshotting as you go.
-2. **Get a Kiro PR on GitHub.** No git CLI on the lab PC means the repo still has
-   zero Kiro-authored commits. One `kiro/…` branch + PR closes the biggest
-   remaining judging risk.
-3. **Public YouTube demo (<3 min).** The lab screen recording is raw material,
-   not the deliverable: it needs to be uploaded as a public YouTube video with
-   the live app URL in the description.
-4. Fill the remaining `[[FILL]]` rows for Correctness, hooks, MCP, powers and
-   Crew — or delete those rows and say plainly what was not run.
+**New finding, and now the top priority:**
+> `kiro-03-settings.png` shows **Specs empty, Agent Hooks empty, MCP Servers
+> empty, steering listing only Global**. The repo's `.kiro/` was not loaded, so
+> that session was not spec-driven development. Nothing about the specs,
+> steering, hooks or MCP server has been *observed working inside Kiro* yet.
+
+**Next session checklist — confirm all of this on screen BEFORE starting work:**
+1. Open the folder that **directly contains** `.kiro/` as the workspace root
+   (not a parent folder with the repo nested inside it).
+2. Prefer `git clone` over a ZIP download — it also gives you the git CLI that
+   was missing, which is what allows Kiro's work to land as a real PR.
+3. After trusting the folder, check the Kiro pane lists: `Test Reed-Solomon`
+   (and the UI spec) under **Specs**, four hooks under **Agent Hooks**, five
+   steering docs under **Agent Steering & Skills**, and `deadletter-codec` under
+   **MCP Servers**. If any are missing, fix that first — do not proceed and do
+   not describe the session as spec-driven.
+4. Screenshot that populated pane. It is the evidence that everything else
+   depends on.
+5. Then run one spec task on a `kiro/…` branch, commit, open a PR.
+
+**Still open:**
+1. **A Kiro PR on GitHub** — there are still zero Kiro-authored commits.
+2. **Public YouTube demo (<3 min)** — the lab screen recording is raw material;
+   it is not yet a public URL.
+3. Correctness (PBT), hook firing, MCP tool calls, powers activation, Crew —
+   either run them or delete those rows and say plainly they were not run.
+4. Done-with-dates check: the session clock reads 23 Nov 2026, so the
+   **credit-request deadline (1 Dec 12:00 PM PT = 2 Dec 1:30 AM IST)** is close.

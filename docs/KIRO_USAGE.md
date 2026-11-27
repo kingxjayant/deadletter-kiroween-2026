@@ -9,11 +9,22 @@
 > GhostBridge, another 2026 entry, explicitly discloses which parts were *not*
 > made by Kiro — judges reward that kind of verifiable honesty.
 >
-> **Status: one real Kiro session so far** — Kiro IDE (Free plan) on 12 Nov 2026,
-> 0.76 credits, 1m 16s, reviewing the codec spec and authoring one edge-case
-> test. Terminal execution was blocked by the lab PC's policy, and there was no
-> git CLI, so **that session produced no PR**. The next session must run
-> somewhere with git installed so Kiro's work lands as a real commit.
+> **Status: one real Kiro session so far** — Kiro IDE (Free plan) on
+> **23 Nov 2026, 12:16**, 0.76 credits, 1m 16s, reviewing the codec and authoring
+> one edge-case test (`docs/evidence/kiro-01…03.png`). Three limits were real and
+> are recorded rather than smoothed over:
+> 1. **The repo's `.kiro/` config was not loaded in that session** — the Settings
+>    pane shows Specs, Hooks and MCP Servers empty and only the three built-in
+>    global skills under steering. So that session was *not* spec-driven
+>    development; Kiro worked by reading the source tree.
+> 2. Terminal execution was blocked by the lab PC's host policy (`execute_pwsh`
+>    → exit -1), so no commands ran and no hook fired.
+> 3. There was no git CLI, so **the session produced no PR**.
+>
+> Everything in sections 1, 4, 5, 6 and 7 below describes configuration that is
+> committed and runnable, *not* behaviour that has been observed inside Kiro yet.
+> The next session's first job is to make the sidebar show the specs, steering,
+> hooks and MCP server — then the prose below becomes true.
 
 ---
 
@@ -32,7 +43,7 @@ demo that silently failed on unlucky tile subsets — the spec/PBT loop is what
 made the MDS guarantee trustworthy.
 
 So far this is exercised on **one surface: Kiro IDE** (Free plan), in a single
-session on 12 Nov 2026 that reviewed the codec spec and authored a test. Specs,
+session on 23 Nov 2026 that reviewed the codec source and authored a test. Specs,
 Correctness, hooks and MCP exist in the repo and are runnable, but they have not
 all been exercised inside Kiro yet — those gaps are listed as `[[FILL]]` below
 rather than papered over.
@@ -68,7 +79,7 @@ table beats an impressive invented one.
 
 | Surface | What I did | What was different | Evidence |
 | --- | --- | --- | --- |
-| Kiro IDE (desktop, Windows) | Signed in as `kingxjayant` on the **Free** plan, opened a ZIP of the repo, trusted the folder, and had Kiro review `.kiro/specs/deadletter-codec` + the codec source and then author an edge-case test for the Nagpuri/emoji string | With no shell available (`execute_pwsh` → **exit -1**, blocked by lab policy) Kiro worked purely from reading the tree and specs — it still traced `sha16` to the un-padded message bytes and proposed a correct test, which is a fair demonstration of spec+steering context doing the work | 0.76 credits / 1m16s / 1 file. Screenshots pending upload; the test is in `tests/codec.test.mjs` (see the note in that file about reconstruction) |
+| Kiro IDE (desktop, Windows) — 23 Nov 2026 | Signed in as `kingxjayant` on the **Free** plan, opened a ZIP of the repo, trusted the folder, and had Kiro review `.kiro/specs/deadletter-codec` + the codec source and then author an edge-case test for the Nagpuri/emoji string | With no shell available (`execute_pwsh` → **exit -1**, blocked by lab policy) Kiro worked purely from reading the tree and specs — it still traced `sha16` to the un-padded message bytes and proposed a correct test, which is a fair demonstration of spec+steering context doing the work | 0.76 credits / 1m16s / 1 file. Evidence: `docs/evidence/kiro-01-chat-and-credits.png`, `kiro-02-diff.png`, `kiro-03-settings.png`. The test is in `tests/codec.test.mjs` (see the note in that file about reconstruction) |
 | Kiro CLI v3 (local, browser OAuth) | `[[FILL: e.g. "ran a scoped spec task from .kiro/specs with kiro-cli login"]]` | `[[FILL]]` | `[[FILL: transcript / PR]]` |
 | Kiro CLI headless in CI — **OPTIONAL** | `.github/workflows/kiro-headless.yml` is ready, but `KIRO_API_KEY` requires a **paid** Kiro plan. With only the free 4,000 hackathon credits, use the IDE/CLI locally and **delete this row**. See `docs/KIRO_CREDITS.md`. | `[[FILL only if it really ran]]` | `[[FILL]]` |
 | Kiro Web | `[[FILL]]` | `[[FILL]]` | `[[FILL]]` |
@@ -103,6 +114,10 @@ Two read-only custom agents are committed in `.kiro/agents/`:
 | `compliance-guard.json` | `PreToolUse` on writes (agent prompt), `SessionStart` (audit command), `PostFileSave` on `.gitignore` | reminders + `node tools/audit-submission.mjs` | Prevents the two most common disqualifications: `.kiro` gitignored and stale provenance. |
 | `docs-sync.json` | `PostFileSave` on specs (agent prompt); `Stop` (agent prompt) | keep README/spec map and the usage write-up consistent; nudge to log evidence | Judges never read a stale claim; evidence is captured while the session is fresh. |
 
+**Status: none of these hooks has fired yet.** The 23 Nov session ran with
+Agent Hooks empty in the Settings pane (`.kiro/` was not loaded), so there is no
+hook log to paste. Configure-then-observe is the next session's first task.
+
 `[[FILL: paste one real hook log excerpt showing an actual firing — e.g. the PBT hook catching a broken coefficient — and what you fixed. If no hook fired during your build, say so honestly and describe the manual run instead, like GhostBridge did.]]`
 
 ---
@@ -118,6 +133,11 @@ silently breaks inclusion modes):
   seven mathematical and format invariants, injected only when those files are touched.
 - `design-system.md` — `inclusion: fileMatch` on the HTML/CSS/controller: palette,
   accessibility and the "spooky must encode real state" rule.
+
+**Status: not yet observed.** The Settings pane listed only the three built-in
+**Global** skills during the one real session, so no steering file was injected.
+The design intent below is sound and the files are committed; it is simply not
+yet demonstrated.
 
 **The highest-value strategy:** putting the *disqualification rules themselves*
 into always-on steering and into an executable audit script. Kiro then had the
@@ -142,7 +162,11 @@ JSON-RPC). It exposes five tools:
 | `list_correctness_properties` | Read the property table from the spec without loading the whole file |
 
 `.github/workflows/ci.yml` smoke-tests the server with three JSON-RPC calls on
-every push, so this is a working integration, not a config file for show.
+every push, so the server itself demonstrably works.
+
+**Status: not yet called from Kiro chat.** MCP Servers was empty in the 23 Nov
+session's Settings pane, so `mcp.json` was not loaded. The server answers JSON-RPC
+correctly (CI proves that); what remains unproven is Kiro *using* it.
 
 `[[FILL: one concrete bug or design decision the MCP tools helped you with — e.g. "encode_message with k=4,n=7 exposed that the parity row for idx=k used the wrong x value; gf_explain showed x=y".]]`
 
@@ -176,6 +200,9 @@ and `submission-checklist.md` (every disqualification trap). Installing it from 
 local folder keeps the codec expertise out of context during unrelated UI work —
 the key advantage over always-on steering or five MCP servers loaded at once.
 
+**Status: not yet installed.** The Powers section of the Settings pane was
+empty. Do not claim activation until it appears there.
+
 `[[FILL: confirm you installed it from the Powers panel, and name a task where it activated. If you used a marketplace power instead (e.g. Kane CLI verification for browser checks), name it here and delete this paragraph's claims.]]`
 
 ---
@@ -188,7 +215,8 @@ Be explicit — this is a credibility multiplier:
   tape format, the UI, the test suites, the CI/Pages workflows and the first
   documentation drafts were produced in an Arena agent session on 12 Nov 2026**,
   with human review. Kiro's contribution so far is one reviewed edge-case test
-  authored inside Kiro IDE. That is disclosed here deliberately: the honest
+  authored inside Kiro IDE on 23 Nov 2026 — plus an accurate critique of the
+  fingerprint code. That is disclosed here deliberately: the honest
   split is "Arena built it, Kiro reviewed and hardened it", not "Kiro built it".
   The remaining work in `docs/OPEN_ITEMS.md` exists to move more of it into
   real Kiro sessions.
