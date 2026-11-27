@@ -91,7 +91,8 @@ all complete and verified.
 > that session was not spec-driven development. Nothing about the specs,
 > steering, hooks or MCP server has been *observed working inside Kiro* yet.
 
-**Next session checklist — confirm all of this on screen BEFORE starting work:**
+**Next session:** follow [`docs/KIRO_LAB_RUNBOOK.md`](KIRO_LAB_RUNBOOK.md) — a 45–60 min
+checklist written to be readable on a phone at the lab. Summary of the gate:
 1. Open the folder that **directly contains** `.kiro/` as the workspace root
    (not a parent folder with the repo nested inside it).
 2. Prefer `git clone` over a ZIP download — it also gives you the git CLI that
