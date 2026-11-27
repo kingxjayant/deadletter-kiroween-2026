@@ -67,3 +67,33 @@ confirmed `kingxjayant/deadletter-kiroween-2026` did not exist before 12 Nov 202
 **Nothing else is blocking.** The app, tests, CI, Pages workflow, `/.kiro` kit,
 licence, disclosure, video script, blog/social drafts and compliance gate are
 all complete and verified.
+
+---
+
+## Update — 12 Nov 2026, after the first real Kiro session
+
+**Done (verified here):**
+- Kiro IDE session on the Free plan: 0.76 credits, 1m16s, one file changed.
+- Kiro's review claim is **correct**: the `sha16` fingerprint is computed over
+  the un-padded message bytes (`codec.mjs:156`), with zero-padding applied only
+  afterwards (line 149).
+- Kiro's test is in `tests/codec.test.mjs` and passes: `npm test` → **26/26**.
+  It was reconstructed here because the lab PC had no git CLI.
+- The test was **strengthened**: Kiro's version kept only source tiles, which
+  needs no matrix inversion. A mixed case (4 source + 4 parity) now also has to
+  recover the same Nagpuri string, so the Cauchy system is genuinely exercised.
+
+**Newly open, in priority order:**
+1. **Upload the Kiro screenshots** (chat, credit usage, diff, Settings sidebar)
+   and the screen recording. They were captured on the lab PC and the local
+   files were deleted — if they were not copied to your phone or cloud drive
+   first, they are **gone** and the fastest fix is one more 5-minute Kiro IDE
+   session on a machine you control, screenshotting as you go.
+2. **Get a Kiro PR on GitHub.** No git CLI on the lab PC means the repo still has
+   zero Kiro-authored commits. One `kiro/…` branch + PR closes the biggest
+   remaining judging risk.
+3. **Public YouTube demo (<3 min).** The lab screen recording is raw material,
+   not the deliverable: it needs to be uploaded as a public YouTube video with
+   the live app URL in the description.
+4. Fill the remaining `[[FILL]]` rows for Correctness, hooks, MCP, powers and
+   Crew — or delete those rows and say plainly what was not run.

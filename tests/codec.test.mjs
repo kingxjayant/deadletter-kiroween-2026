@@ -87,3 +87,48 @@ test('empty and oversized messages are rejected clearly', async () => {
   await assert.rejects(() => makeTape(''), /must not be empty/);
   await assert.rejects(() => makeTape('x'.repeat(LIMITS.MAX_MESSAGE_BYTES + 1)), /exceeds/);
 });
+
+// Authored by Kiro during a real Kiro IDE session (Kiro Free plan, 12 Nov 2026).
+// That session ran on a college lab PC with no git CLI, working from a ZIP of
+// this repo; the change was never committed there and the machine was wiped.
+// This file is a reconstruction from the session record — the screenshots of
+// Kiro's diff are the provenance, not this copy. The mixed source+parity
+// assertions at the end were added afterwards (see the comment inline).
+test('Devanagari/Nagpuri text survives losing all 6 parity tiles (8 of 14 remain)', async () => {
+  const NAGPURI = 'नेटवर्क मरे गे। संदेसा काकर ले जाबे? — जयंत कुमार, नागपुर 🕯️';
+  const tape = await makeTape(NAGPURI, { k: 8, n: 14, id: 'nagpuri1' });
+
+  assert.equal(tape.tiles.length, 14);
+  assert.equal(tape.k, 8);
+  assert.equal(tape.n, 14);
+
+  // Drop every parity tile (indices k..n-1) and keep only the 8 source tiles.
+  const sourceOnly = tape.tiles.filter((tile) => tile.idx < 8).map((tile) => tile.text);
+  assert.equal(sourceOnly.length, 8);
+
+  const result = await decodeTape(sourceOnly);
+  assert.equal(result.text, NAGPURI, 'exact string recovery');
+  assert.equal(result.verified, true, 'SHA-256 verification');
+  assert.equal(result.tilesLost, 6, 'all 6 parity tiles lost');
+  assert.equal(result.tilesUsed.length, 8, 'exactly 8 tiles used');
+  assert.deepEqual(
+    [...result.bytes],
+    [...new TextEncoder().encode(NAGPURI)],
+    'UTF-8 byte-level identity',
+  );
+
+  // Keeping only source tiles is the *easy* path: it needs no matrix inversion.
+  // Add the case that actually exercises the Cauchy system — parity tiles now
+  // carry information the surviving source tiles do not.
+  const mixed = [
+    ...tape.tiles.filter((tile) => tile.idx < 4),        // 4 source tiles
+    ...tape.tiles.filter((tile) => tile.idx >= 10),      // 4 parity tiles
+  ].map((tile) => tile.text);
+  assert.equal(mixed.length, 8);
+
+  const mixedResult = await decodeTape(mixed);
+  assert.equal(mixedResult.text, NAGPURI, 'mixed source+parity recovery');
+  assert.equal(mixedResult.verified, true);
+  assert.equal(mixedResult.tilesLost, 6);
+  assert.ok(mixedResult.tilesUsed.some((i) => i >= 8), 'a parity tile was required');
+});

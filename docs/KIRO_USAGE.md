@@ -8,6 +8,12 @@
 > do. Log every session in `docs/KIRO_EVIDENCE.md` and link the PRs here.
 > GhostBridge, another 2026 entry, explicitly discloses which parts were *not*
 > made by Kiro — judges reward that kind of verifiable honesty.
+>
+> **Status: one real Kiro session so far** — Kiro IDE (Free plan) on 12 Nov 2026,
+> 0.76 credits, 1m 16s, reviewing the codec spec and authoring one edge-case
+> test. Terminal execution was blocked by the lab PC's policy, and there was no
+> git CLI, so **that session produced no PR**. The next session must run
+> somewhere with git installed so Kiro's work lands as a real commit.
 
 ---
 
@@ -25,7 +31,11 @@ tests supplied evidence. Vibe coding alone would have produced a plausible-looki
 demo that silently failed on unlucky tile subsets — the spec/PBT loop is what
 made the MDS guarantee trustworthy.
 
-`[[FILL: one sentence naming the Kiro surfaces you actually used, e.g. "Kiro IDE 1.x for specs + Correctness, Kiro CLI v3 headless in GitHub Actions, Kiro Web for a review session, Kiro Crew for the auditor app".]]`
+So far this is exercised on **one surface: Kiro IDE** (Free plan), in a single
+session on 12 Nov 2026 that reviewed the codec spec and authored a test. Specs,
+Correctness, hooks and MCP exist in the repo and are runnable, but they have not
+all been exercised inside Kiro yet — those gaps are listed as `[[FILL]]` below
+rather than papered over.
 
 ---
 
@@ -58,7 +68,7 @@ table beats an impressive invented one.
 
 | Surface | What I did | What was different | Evidence |
 | --- | --- | --- | --- |
-| Kiro IDE | `[[FILL]]` | `[[FILL]]` | `[[FILL: PR / screenshot path]]` |
+| Kiro IDE (desktop, Windows) | Signed in as `kingxjayant` on the **Free** plan, opened a ZIP of the repo, trusted the folder, and had Kiro review `.kiro/specs/deadletter-codec` + the codec source and then author an edge-case test for the Nagpuri/emoji string | With no shell available (`execute_pwsh` → **exit -1**, blocked by lab policy) Kiro worked purely from reading the tree and specs — it still traced `sha16` to the un-padded message bytes and proposed a correct test, which is a fair demonstration of spec+steering context doing the work | 0.76 credits / 1m16s / 1 file. Screenshots pending upload; the test is in `tests/codec.test.mjs` (see the note in that file about reconstruction) |
 | Kiro CLI v3 (local, browser OAuth) | `[[FILL: e.g. "ran a scoped spec task from .kiro/specs with kiro-cli login"]]` | `[[FILL]]` | `[[FILL: transcript / PR]]` |
 | Kiro CLI headless in CI — **OPTIONAL** | `.github/workflows/kiro-headless.yml` is ready, but `KIRO_API_KEY` requires a **paid** Kiro plan. With only the free 4,000 hackathon credits, use the IDE/CLI locally and **delete this row**. See `docs/KIRO_CREDITS.md`. | `[[FILL only if it really ran]]` | `[[FILL]]` |
 | Kiro Web | `[[FILL]]` | `[[FILL]]` | `[[FILL]]` |
@@ -174,7 +184,18 @@ the key advantage over always-on steering or five MCP servers loaded at once.
 
 Be explicit — this is a credibility multiplier:
 
-- `[[FILL: e.g. "The initial scaffold, CI workflows and first documentation draft were produced in an Arena agent session on 12 Nov 2026, then all codec/UI implementation tasks were re-run inside Kiro from the spec; see PR #…". Adapt to what actually happened.]]`
+- **The initial scaffold, the GF(2⁸) field arithmetic, the Cauchy codec, the
+  tape format, the UI, the test suites, the CI/Pages workflows and the first
+  documentation drafts were produced in an Arena agent session on 12 Nov 2026**,
+  with human review. Kiro's contribution so far is one reviewed edge-case test
+  authored inside Kiro IDE. That is disclosed here deliberately: the honest
+  split is "Arena built it, Kiro reviewed and hardened it", not "Kiro built it".
+  The remaining work in `docs/OPEN_ITEMS.md` exists to move more of it into
+  real Kiro sessions.
+- `tests/codec.test.mjs` contains Kiro's test **reconstructed** from the session
+  record, because that session ran on a lab PC without git and the working copy
+  was wiped before it could be committed. The reconstruction is labelled in the
+  file; the screenshots of Kiro's diff are the actual provenance.
 - The maths (Cauchy MDS property) comes from coding theory, not from Kiro.
 - The licence texts of vendored libraries are third-party; see `NOTICE`.
 - No AI model is called at runtime. The demo contains no inference, no API key.
@@ -185,7 +206,7 @@ Be explicit — this is a credibility multiplier:
 
 ```bash
 npm ci
-npm test                  # 23 tests: unit, PBT, headless DOM smoke
+npm test                  # 26 tests: unit, PBT, headless DOM smoke
 npm run test:pbt          # the six correctness properties
 npm run build             # reproducible static bundle
 npm run audit:submission  # 10+ Official Rules checks

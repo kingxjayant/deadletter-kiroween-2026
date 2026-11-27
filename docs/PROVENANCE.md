@@ -22,6 +22,16 @@ must disclose any other pre-existing code or work incorporated into the Project.
   sessions that actually happened are logged in `docs/KIRO_EVIDENCE.md` and
   described in `docs/KIRO_USAGE.md`; work by other tools is explicitly disclosed
   there rather than attributed to Kiro.
+- **Split of contribution, stated plainly:** the initial scaffold, GF(2⁸)
+  arithmetic, Cauchy codec, tape format, UI, test suites and CI/Pages workflows
+  were produced in an Arena agent session with human review on 12 Nov 2026.
+  **Kiro** (IDE, Free plan) contributed a reviewed edge-case test on 12 Nov 2026
+  (0.76 credits); its diff is recorded in screenshots. The cell value of the
+  project is the codec, and it is verified by a committed 26-test suite that any
+  judge can run with `npm test`.
+- The Kiro-authored test was **reconstructed** in this repository from the
+  session record, because that session ran on a lab PC with no git CLI and the
+  working copy was wiped. It is labelled as such in `tests/codec.test.mjs`.
 - The entrant owns all rights to the submission and grants MIT license to the
   original code.
 

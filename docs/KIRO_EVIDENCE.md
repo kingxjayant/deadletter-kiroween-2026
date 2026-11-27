@@ -21,6 +21,8 @@ both a rules risk and easy to spot.
 
 | Date (2026) | Kiro surface | Task / spec | Real artifact | What changed | Verified by |
 | --- | --- | --- | --- | --- | --- |
+| 12 Nov | **Kiro IDE** (desktop, Windows lab PC, signed in as `kingxjayant`, **Kiro Free** plan) | Asked Kiro to review `.kiro/specs/deadletter-codec` and the codec source, then add an edge-case test | `tests/codec.test.mjs` — test `Devanagari/Nagpuri text survives losing all 6 parity tiles (8 of 14 remain)`. **Consumed 0.76 credits, 1m 16s, 1 file changed.** No PR: the lab PC had no git CLI (repo opened from a GitHub ZIP) and the working copy was deleted at the end of the session | Kiro confirmed the `sha16` fingerprint is taken over the **pre-padding** message bytes (verified independently: `sha16(bytes)` at `codec.mjs:156`, zero-padding to `k × chunkSize` only at line 149, so two messages differing only in trailing-zero padding cannot collide). It then authored the Nagpuri + emoji test asserting exact string recovery, SHA-256 verification, 6 lost tiles, 8 used tiles and UTF-8 byte equality | Screenshots captured on the lab PC (Kiro chat, credit usage, diff, Settings sidebar) — **upload pending**, see `docs/OPEN_ITEMS.md`. Test re-run here: `npm test` 26/26 |
+| 12 Nov | **Kiro IDE — blocked capability** | Tried a terminal-backed task | `execute_pwsh` returned **Exit Code: -1**: the lab PC's host policy blocks shell execution | Worked around it by having Kiro inspect the codebase and specs read-only instead of running commands. Worth stating plainly in the write-up: this is why that session produced a test rather than a full spec task run, and why no hook fired | This row is itself the evidence — a blocked tool is disclosed, not hidden |
 | 12 Nov | *not Kiro* — Arena agent + human | Initial research, concept, scaffold, codec, UI, tests, `.kiro` configuration, docs | this repository at its first commit | Project created inside the Submission Period; disclosed under `docs/PROVENANCE.md` | `npm test` 23/23, `npm run build` |
 | `[[FILL]]` | Kiro IDE — spec session | `.kiro/specs/deadletter-codec` tasks 2.x | PR `[[FILL]]` | `[[FILL]]` | `npm run test:pbt` `[[FILL]]` |
 | `[[FILL]]` | Kiro IDE — Correctness (PBT) | Properties P1–P6 | `docs/evidence/[[FILL]].png` | `[[FILL]]` | `[[FILL]]` |
@@ -30,11 +32,15 @@ both a rules risk and easy to spot.
 | `[[FILL]]` | Power activation | `[[FILL]]` | `docs/evidence/[[FILL]].png` | `[[FILL]]` | `[[FILL]]` |
 | `[[FILL]]` | Kiro Crew | `crew-app/` | separate repo `[[FILL]]` | `[[FILL]]` | `[[FILL]]` |
 
-## Suggested first real Kiro sessions (do these this week)
+## Suggested next Kiro sessions (the first one is now done)
 
-1. **IDE, spec mode:** open `.kiro/specs/deadletter-codec/tasks.md`, ask Kiro to
-   implement task 2.7 "add a `decodeTape` overload that reports the exact tiles
-   used" — a small, real, testable change. Commit as a PR.
+1. **IDE, spec mode — DO THIS NEXT.** The first session produced no PR because
+   the machine had no git CLI. Run the next one on a machine **with git
+   installed** so Kiro's work lands as a real commit on a `kiro/…` branch, and
+   open a PR. That single PR closes the "insufficient use of Kiro" risk far more
+   convincingly than any screenshot. Suggested task: `.kiro/specs/deadletter-codec`
+   task 2.7, or have Kiro extend the mixed source+parity property into a
+   fast-check property in `tests/pbt.test.mjs`.
 2. **IDE, Correctness:** run the properties on the codec spec; save the screenshot.
 3. **CLI locally (free account):** `kiro-cli login` (browser OAuth), then run a
    scoped task with the workspace `.kiro` config; save the transcript.
